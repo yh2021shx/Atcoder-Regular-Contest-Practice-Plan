@@ -7,5 +7,6 @@
 * AT_arc183_d 高 *2880 NOIP_T3.5 树的重心 DS 思维
 * CF925C 高 *2200 NOIP_T2 构造 思维
 * CF925D 高 *2600 NOIP_T2.5 构造 分析 思维
-* CF2150B 高 *1600 NOIP_T2 思维 计数
+* CF2150B 高 *1600 NOIP_T1.5 思维 计数
 * CF2150C 中 *2100 NOIP_T1 DP DS
+* CF2150D 高 *2700 NOIP_T3 计数 思维
