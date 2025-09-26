@@ -1,0 +1,33 @@
+# C
+
+```
+Quality = 中
+Difficulty = 2408
+Personal_Difficulty = NOIP_T3
+Time = 2025.9.26
+Tag = DP 矩阵乘法 计数
+```
+
+## 题解
+
+我们需要求出对于每个 $X = \prod a_i$，对于 $X$ 的质因数分解 $\prod p_i^{q_i}$，求出 $\prod (q_i + 1)$。注意到值域特别小，而且 $n$ 非常大，不妨尝试矩阵快速幂。
+
+由于 $\prod {q_i + 1}$ 这个式子肯定不能直接算，因此我们能意识到这需要拆贡献。
+
+假设原本的序列为 $q_i$，现在需要加入一个数，这个数分解后是 $b_i$，那我们需要求出 $\prod (q_i + b_i + 1)$。
+
+**这看起来完全不可做，但实际上我们可以拆式子！**考虑对这个东西拆分：
+
+$$
+\begin{aligned}
+& \sum \prod_{i} (q_i + b_i + 1)\\
+= & \sum \sum_{T \subseteq S} \prod_{i \in T} (q_i + 1)\prod_{i \notin T}b_i
+\end{aligned}
+$$
+关键的一点在于，我们成功的将 $q_i$ 和 $b_i$ 拆开了，剩下的就比较朴素了。我们设计 $f_{i, S}$ 表示前 $i$ 个数，$\prod_{i \in S} (q_i + 1)$ 的和。那么，由上式，可以得出 $f_{i, S} = \sum_{T\subseteq S} f_{i - 1, T}\prod_{i\in S,i\notin T} b_i$。
+
+但是，上面这个式子带一个 $\mathcal{O}(n)$，所以时间复杂度无法接受。考虑矩阵快速幂优化，发现这其实是容易的，只是我们要再额外记一个 $f_{i, U}$ 的和。因此最终复杂度 $\mathcal{O}(\pi(M)^3 \log)$。
+
+## 反思
+
+* **当贡献不能直接计算，列出式子，并尝试拆成更加容易的形式。**
