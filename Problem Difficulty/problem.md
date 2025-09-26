@@ -11,3 +11,4 @@
 * CF2150C 中 *2100 NOIP_T1 DP DS
 * CF2150D 高 *2700 NOIP_T3 计数 思维
 * AT_arc182_c 中 *2400 NOIP_T3 DP 矩阵乘法 计数
+* AT_arc182_d 高 *3000 NOIP_T4 思维 贪心
